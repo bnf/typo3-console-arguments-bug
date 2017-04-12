@@ -5,14 +5,7 @@ php:
 
 sudo: false
 
-matrix:
-  fast_finish: true
-
-cache:
-  apt: true
-
 before_install:
-  - echo $TRAVIS_PHP_VERSION
   - if php -i | grep -q xdebug; then phpenv config-rm xdebug.ini; fi
 
 install:
