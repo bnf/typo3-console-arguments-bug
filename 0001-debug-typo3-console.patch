@@ -1,0 +1,40 @@
+From 4532d25bbab52363af099df11b61c580760ff54e Mon Sep 17 00:00:00 2001
+From: Benjamin Franzke <benjaminfranzke@googlemail.com>
+Date: Wed, 12 Apr 2017 23:30:46 +0200
+Subject: [PATCH] debug typo3-console
+
+---
+ Classes/Install/CliSetupRequestHandler.php           | 1 +
+ Classes/Mvc/Cli/FailedSubProcessCommandException.php | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Classes/Install/CliSetupRequestHandler.php b/Classes/Install/CliSetupRequestHandler.php
+index ccc5d25..dd099d0 100644
+--- a/Classes/Install/CliSetupRequestHandler.php
++++ b/Classes/Install/CliSetupRequestHandler.php
+@@ -107,6 +107,7 @@ class CliSetupRequestHandler
+     {
+         $this->interactiveSetup = $interactiveSetup;
+         $this->givenRequestArguments = $givenRequestArguments;
++        print_r($givenRequestArguments);
+ 
+         $firstInstallPath = PATH_site . 'FIRST_INSTALL';
+         if (!file_exists($firstInstallPath)) {
+diff --git a/Classes/Mvc/Cli/FailedSubProcessCommandException.php b/Classes/Mvc/Cli/FailedSubProcessCommandException.php
+index 54fe839..94c669b 100644
+--- a/Classes/Mvc/Cli/FailedSubProcessCommandException.php
++++ b/Classes/Mvc/Cli/FailedSubProcessCommandException.php
+@@ -63,8 +63,9 @@ class FailedSubProcessCommandException extends \Exception
+             );
+         } else {
+             $errorMessage = sprintf(
+-                "Executing \"%s\" failed (exit code: \"%d\") with message:\n\n\"%s\"\n\nand error:\n\n\"%s\"\n",
++                "Executing \"%s\" \"%s\" failed (exit code: \"%d\") with message:\n\n\"%s\"\n\nand error:\n\n\"%s\"\n",
+                 $command,
++                $commandLine,
+                 $exitCode,
+                 $outputMessage,
+                 $errorMessage
+-- 
+2.9.3
+
