@@ -1,0 +1,25 @@
+From 752166053142b78989c80800cb520f3957a156c1 Mon Sep 17 00:00:00 2001
+From: Benjamin Franzke <bfr@qbus.de>
+Date: Thu, 13 Apr 2017 00:26:58 +0200
+Subject: [PATCH] Debug rawCommandLineArguments
+
+Change-Id: I2d004cb3b0b896a0753f12bb43cfe775b3154a7f
+---
+ typo3/sysext/extbase/Classes/Mvc/Cli/RequestBuilder.php | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/typo3/sysext/extbase/Classes/Mvc/Cli/RequestBuilder.php b/typo3/sysext/extbase/Classes/Mvc/Cli/RequestBuilder.php
+index 27e9719..524a3a6 100644
+--- a/typo3/sysext/extbase/Classes/Mvc/Cli/RequestBuilder.php
++++ b/typo3/sysext/extbase/Classes/Mvc/Cli/RequestBuilder.php
+@@ -90,6 +90,7 @@ class RequestBuilder implements \TYPO3\CMS\Core\SingletonInterface
+         $request->setCallingScript($callingScript);
+         $request->setControllerObjectName(\TYPO3\CMS\Extbase\Command\HelpCommandController::class);
+         $rawCommandLineArguments = is_array($commandLine) ? $commandLine : explode(' ', $commandLine);
++        var_dump($rawCommandLineArguments);
+         if (empty($rawCommandLineArguments)) {
+             $request->setControllerCommandName('helpStub');
+             return $request;
+-- 
+2.9.3
+

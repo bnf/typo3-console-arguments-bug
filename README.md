@@ -11,6 +11,16 @@ Output of above command on Fedora Linux:
 
 ```
 [typo3-console-arguments-bug] $ rm -f web/typo3conf/LocalConfiguration.php web/typo3conf/PackageStates.php && ./vendor/bin/typo3cms install:setup --database-socket="" --site-name="Site"  --non-interactive
+array(4) {
+  [0]=>
+  string(13) "install:setup"
+  [1]=>
+  string(18) "--database-socket="
+  [2]=>
+  string(16) "--site-name=Site"
+  [3]=>
+  string(17) "--non-interactive"
+}
 
 Welcome to the TYPO3 Console installer!
 Array
